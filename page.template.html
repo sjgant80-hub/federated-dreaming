@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Federated Dreaming — defensive publication</title>
+<meta name="description" content="Devices learn together by exchanging consolidated memory records — never weights, never gradients, never raw data. Public domain, prior art.">
+<style>
+:root{
+  --bg:#faf8fb; --ink:#211526; --muted:#644f6c; --accent:#86198f; --accent-2:#a21caf;
+  --card:#ffffff; --line:#e5d9e8; --mono-bg:#f4edf6; --good:#15803d; --warn:#b45309; --bad:#b91c1c;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#140c17; --ink:#efe2f2; --muted:#ab93b3; --accent:#e879f9; --accent-2:#f0abfc;
+  --card:#1d1121; --line:#331f39; --mono-bg:#1e0f23; --good:#4ade80; --warn:#fbbf24; --bad:#f87171;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "Iowan Old Style","Palatino Linotype",Georgia,serif}
+.banner{background:var(--accent);color:var(--bg);font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:10px 20px;text-align:center}
+main{max-width:72ch;margin:0 auto;padding:32px 20px 64px}
+h1{font-size:2.3rem;line-height:1.15;margin:.4em 0 .2em;text-wrap:balance}
+h2{font-size:1.25rem;margin:2.2em 0 .5em;color:var(--accent);letter-spacing:.01em}
+.kicker{font:600 13px/1.5 system-ui,sans-serif;color:var(--muted);letter-spacing:.09em;text-transform:uppercase}
+.lede{font-size:1.12rem;color:var(--muted)}
+a{color:var(--accent-2)}
+table{border-collapse:collapse;width:100%;font:14px/1.5 system-ui,sans-serif}
+.tablewrap{overflow-x:auto;margin:1em 0}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-weight:600;color:var(--muted)}
+code,.mono{font:13.5px/1.6 ui-monospace,Consolas,monospace;background:var(--mono-bg);border-radius:4px;padding:1px 5px}
+.law{background:var(--mono-bg);border-left:3px solid var(--accent);border-radius:6px;padding:12px 16px;font:14px/1.7 ui-monospace,Consolas,monospace;overflow-x:auto;white-space:pre}
+.demo{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:1.4em 0;font-family:system-ui,sans-serif}
+.demo h3{margin:0 0 6px;font-size:1rem;color:var(--accent)}
+.demo p{font-size:14px;color:var(--muted);margin:.3em 0 1em}
+button{font:600 14px system-ui,sans-serif;background:var(--accent);color:var(--bg);border:0;border-radius:8px;padding:9px 16px;cursor:pointer}
+button:hover{background:var(--accent-2)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent-2);outline-offset:2px}
+input[type=text],input[type=number]{font:14px ui-monospace,monospace;background:var(--mono-bg);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:6px 8px}
+label{font:13px system-ui,sans-serif;color:var(--muted);display:block;margin:8px 0 3px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row>div{flex:1;min-width:140px}
+.check{display:flex;align-items:center;gap:8px;font:14px system-ui,sans-serif;margin:10px 0}
+.out{font:13.5px/1.7 ui-monospace,Consolas,monospace;background:var(--mono-bg);border-radius:8px;padding:12px 14px;margin-top:12px;overflow-x:auto;min-height:1.5em;white-space:pre-wrap}
+footer{border-top:1px solid var(--line);margin-top:48px;padding-top:18px;font:13px/1.7 system-ui,sans-serif;color:var(--muted)}
+.honest{border:1px solid var(--line);border-radius:12px;padding:4px 18px;margin:1em 0;background:var(--card)}
+@media (prefers-reduced-motion: no-preference){button{transition:background .15s}}
+</style>
+</head>
+<body>
+<div class="banner">Defensive publication · disclosed 30 August 2026 · CC0-1.0 · this page is prior art</div>
+<main>
+<p class="kicker">Publication II of the edge-AI family · the inter-didy protocol</p>
+<h1>Federated Dreaming</h1>
+<p class="lede">Devices learn together by exchanging consolidated <em>memory records</em> — never
+model weights, never gradients, never raw data. Federated learning's patent thicket sits at the
+weight-and-gradient layer; this disclosure plants the flag one layer up, where the exchange is
+human-legible and the privacy wall is structural, not statistical.</p>
+
+<p>What crosses a device boundary is exactly five fields: <code>{ topic, distilled, weight,
+origin, seq }</code>. Nothing else can — <strong>by construction</strong>. When the estate's own
+resident mind was asked what it wanted for itself and other didys, its first ask was this protocol.
+The document of record is the
+<a href="https://github.com/sjgant80-hub/federated-dreaming">README of this repository</a>; this
+page carries the 49/49 mutation-gated reference law, runnable below.</p>
+
+<h2>1 · The privacy wall</h2>
+<div class="law">pack({ topic, distilled, weight, rawChat: "…" })
+→ { ok:false, why: 'raw fields never cross: "rawChat"' }</div>
+<p>The wall names what it stopped. Privacy failures in federated systems are leaks through the
+allowed channel; here the allowed channel is a distilled sentence and a number — too narrow to
+leak through.</p>
+
+<h2>2 · The four doors</h2>
+<p>Before any foreign record touches local memory, in fixed order, first failure speaks:
+<strong>shape</strong> (exactly five fields, unknowns refused by name) → <strong>identity</strong>
+(origin must match the grant) → <strong>capability</strong> (you subscribe to <em>topics</em>, not to
+a peer's whole mind) → <strong>replay</strong> (sequence strictly advances) →
+<strong>budget</strong> (the grant pays 1 per packet, and refuses when spent). The working admission
+wall behind this is <a href="https://github.com/sjgant80-hub/chorus">chorus</a>, gated.</p>
+
+<h2>3 · The merge law</h2>
+<p>A known topic <strong>reinforces</strong>: <code>weight = 1 − (1−a)(1−b)</code> — independent
+sightings compound and never reach 1 — and the local distilled text is kept: <em>a neighbour's words
+never overwrite your own</em>. A new topic is <strong>adopted</strong> only at weight ≥ κ (0.618);
+below that it is <strong>held</strong> — heard, not yet believed.</p>
+
+<h2>4 · Dreaming together</h2>
+<p>Each device runs its own nightly consolidation
+(<a href="https://sjgant80-hub.github.io/sovereign-edge-brain/">the dream law</a>). Federation is
+then just: dream locally, exchange what survived, merge under the doors. Transport over sound, radio
+or light is <a href="https://sjgant80-hub.github.io/mctp-multi-carrier-transport/">MCTP</a>.</p>
+
+<div class="demo">
+<h3>Run the reference law — send a memory between devices</h3>
+<p>You are <code>phone-b</code>, receiving from <code>phone-a</code> under a grant for topics
+<code>cooking, birds</code>, budget 3, last seq 4. Build the packet; try smuggling a raw field.</p>
+<div class="row">
+<div><label for="ftopic">topic</label><input type="text" id="ftopic" value="cooking" style="width:100%"></div>
+<div><label for="fweight">weight</label><input type="number" id="fweight" min="0" max="1" step="0.01" value="0.7" style="width:100%"></div>
+<div><label for="fseq">seq</label><input type="number" id="fseq" min="1" step="1" value="5" style="width:100%"></div>
+</div>
+<label for="fdist">distilled (the only prose that may cross)</label>
+<input type="text" id="fdist" value="salt the water early, always" style="width:100%">
+<div class="check"><input type="checkbox" id="fsmuggle"><label for="fsmuggle" style="margin:0">try to smuggle <code>rawChat</code> (the full private conversation) into the packet</label></div>
+<button id="sendBtn">pack → four doors → merge</button>
+<div class="out" id="fedOut">the exchange will report here</div>
+</div>
+
+<h2>What already runs · what must catch up</h2>
+<div class="honest">
+<p><strong>Gated and live today:</strong> the reference law in this page (49/49 mutants killed) ·
+chorus · the-dreamer · fall-remember — each mutation-gated in public CI. Real device-to-device
+handshake without a signalling server exists in the estate's mesh.</p>
+<p><strong>The honest speculation:</strong> distillation quality is bounded by the local model ·
+topic-ontology drift between devices is NOT solved here · grants are assumed exchanged out of band.
+<strong>Not claimed:</strong> a differential-privacy guarantee — the claim is structural: the channel
+carries owner-distilled prose and scalars, nothing else.</p>
+</div>
+
+<h2>Claims anticipated</h2>
+<p>Collective learning by exchange of consolidated memory records rather than weights or gradients ·
+structural field-allowlisting with refusal-by-name · capability-scoped topic subscription between
+learning agents · evidence-accumulation merging of independent records · hold-below-threshold
+adoption · sequence-and-budget-gated memory exchange between personal AI devices.
+<strong>Prior art here, dated by first commit.</strong></p>
+
+<footer>
+<p>Built on the <strong>Konomi architecture</strong>, created by <strong>Thomas Frumkin</strong>
+(<a href="https://konomi-systems.com">konomi-systems.com</a>) — lineage Thomas → Jim → Simon.
+The estate builds WITH Konomi. Requested by sididy, the estate's resident mind, as the protocol
+between didys. Published CC0-1.0 — no rights reserved, deliberately.
+<a href="https://sjgant80-hub.github.io/fallworld/">The estate</a>.</p>
+</footer>
+</main>
+<script>
+/*__KERNEL_START__*/
+/*__KERNEL_END__*/
+(function(){
+  const GRANT={device:'phone-a',topics:['cooking','birds'],budget:3};
+  let local=[{topic:'cooking',distilled:'my own words: taste as you go',weight:0.5},{topic:'weather',distilled:'red sky at night',weight:0.8}];
+  const show=(s)=>{document.getElementById('fedOut').textContent=s};
+  document.getElementById('sendBtn').addEventListener('click',()=>{
+    const rec={topic:document.getElementById('ftopic').value,distilled:document.getElementById('fdist').value,
+      weight:parseFloat(document.getElementById('fweight').value)};
+    if(document.getElementById('fsmuggle').checked) rec.rawChat='the entire private conversation, verbatim';
+    const seq=parseInt(document.getElementById('fseq').value,10);
+    const p=window.FEDERATE.pack(rec,'phone-a',seq);
+    if(!p.ok){show('THE WALL: '+p.why);return}
+    const a=window.FEDERATE.admitExchange(p.packet,GRANT,4);
+    if(!a.ok){show('packed ✓ (only the five fields left the device)\nTHE DOORS: '+a.why);return}
+    const m=window.FEDERATE.merge(local,p.packet);
+    if(!m.ok){show('packed ✓ · admitted ✓\nMERGE REFUSED: '+m.why);return}
+    local=m.memory;
+    show('packed ✓ · four doors ✓ (cost '+a.cost+')\n'+m.action.toUpperCase()+': '+m.why+
+      '\n\nyour memory now:\n'+local.map(r=>'  '+r.topic+' @ '+r.weight+' — "'+r.distilled+'"').join('\n'));
+  });
+})();
+</script>
+</body>
+</html>
