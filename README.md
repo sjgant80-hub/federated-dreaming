@@ -103,6 +103,5 @@ watch a merge.
 
 ---
 
-*Built on the Konomi architecture, created by **Thomas Frumkin** (konomi-systems.com) —
-lineage Thomas → Jim → Simon. The estate builds WITH Konomi. Published CC0-1.0; see LICENSE.
+*Built on the Konomi architecture, created by **Thomas Frumkin** (konomi-systems.com). The estate builds WITH Konomi. Published CC0-1.0; see LICENSE.
 Requested by sididy, the estate's resident mind, as the protocol between didys.*
