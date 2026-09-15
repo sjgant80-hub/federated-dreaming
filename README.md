@@ -15,6 +15,8 @@ never gradients, never raw data. Federated learning's central patent thicket sit
 weight-and-gradient layer; this disclosure plants the flag one layer up, where the exchange is
 human-legible and the privacy wall is structural rather than statistical.
 
+_The dreaming-brain design — memory that consolidates on a dream-cycle and wakes smarter — is Gary Floyd's (Nexus); this disclosure federates that consolidation across devices._
+
 A record that crosses a device boundary carries exactly five fields:
 `{ topic, distilled, weight, origin, seq }`. Nothing else can cross, **by construction** — the
 packing law refuses any extra field *by name*. There is no gradient to invert, no weight delta
